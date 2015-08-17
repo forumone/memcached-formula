@@ -33,4 +33,6 @@ UDPPORT="0"
 PIDBASE="/var/run/memcached/memcached"
 
 #Other Options
-MISC_OPTS=""
+{% if get_config_options('options') %}
+MISC_OPTS="{{ get_config_options('options') }}"
+{% endif %}
