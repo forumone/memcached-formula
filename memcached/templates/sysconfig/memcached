@@ -23,3 +23,6 @@ OPTIONS="$OPTIONS -v >> {{ get_config_item('log_file') }} 2>&1"
 {% elif get_config_item('verbose_level') == '2' %}
 OPTIONS="$OPTIONS -vv >> {{ get_config_item('log_file') }} 2>&1"
 {% endif %}
+
+{% if get_config_item('options') %}
+OPTIONS="$OPTIONS {{ get_config_item('options'} }}"
