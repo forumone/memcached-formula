@@ -1,5 +1,5 @@
 memcached:
-  deamonize: True
+  daemonize: True
   verbose_level: 0
   memory_cap: 64
   port: 11211
@@ -9,3 +9,4 @@ memcached:
   lock_paged_memory: False
   error_on_mem_full: False
   max_core_file_limit: False
+  slab_size_limit: '1m'

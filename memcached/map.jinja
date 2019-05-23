@@ -1,6 +1,6 @@
 {% set defaults = {
     'config':{
-        'deamonize': True,
+        'daemonize': True,
         'verbose_level': 0,
         'log_file': '/var/log/memcached.log',
         'memory_cap': 64,
@@ -11,9 +11,17 @@
         'lock_paged_memory': False,
         'error_on_mem_full': False,
         'max_core_file_limit': False,
-    }  
+        'slab_size_limit': '1m',
+    }
 } %}
 {% set memcached = salt['grains.filter_by']({
+    'Suse':{
+        'server': 'memcached',
+        'service': 'memcached',
+        'python': 'python-python-memcached',
+        'config_file': '/etc/memcached.conf',
+        'libmemcached': 'libmemcached-devel',
+    },
     'Debian':{
         'server': 'memcached',
         'service': 'memcached',

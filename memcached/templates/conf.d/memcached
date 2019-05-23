@@ -33,6 +33,8 @@ UDPPORT="0"
 PIDBASE="/var/run/memcached/memcached"
 
 #Other Options
-{% if get_config_options('options') %}
-MISC_OPTS="{{ get_config_options('options') }}"
+MISC_OPTS=""
+
+{% if get_config_item('slab_size_limit') != '1m' %}
+MISC_OPTS="$MISC_OPTS -I {{ get_config_item('slab_size_limit') }}"
 {% endif %}
